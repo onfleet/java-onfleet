@@ -9,7 +9,7 @@ public class WorkerRouting {
 	private final Boolean createdByLocation;
 	private final String googlePlaceId;
 	private final String id;
-	private final List<Long> location;
+	private final List<Double> location;
 	private final String notes;
 	private final String organization;
 	private final Long timeCreated;
