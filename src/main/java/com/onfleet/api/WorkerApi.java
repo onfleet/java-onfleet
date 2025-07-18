@@ -208,7 +208,7 @@ public class WorkerApi extends BaseApi {
 		String url = String.format("%s/metadata", baseUrl);
 		String jsonPayload = GsonSingleton.getInstance().toJson(metadata);
 		RequestBody body = RequestBody.create(jsonPayload, MediaTypes.JSON);
-		Response response = sendRequest(HttpMethodType.PUT, body, url);
+		Response response = sendRequest(HttpMethodType.POST, body, url);
 		return handleResponse(response, new TypeToken<List<Worker>>() {
 		}.getType());
 	}

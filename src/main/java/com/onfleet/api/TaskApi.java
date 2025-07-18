@@ -187,7 +187,7 @@ public class TaskApi extends BaseApi {
 	 */
 	public Task getSingleTask(String taskId) throws ApiException {
 		String url = String.format("%s/%s", baseUrl, taskId);
-		Response response = sendRequest(HttpMethodType.POST, url);
+		Response response = sendRequest(HttpMethodType.GET, url);
 		return handleResponse(response, Task.class);
 	}
 
@@ -201,7 +201,7 @@ public class TaskApi extends BaseApi {
 	 */
 	public Task getTaskByShortId(String taskShortId) throws ApiException {
 		String url = String.format("%s/shortId/%s", baseUrl, taskShortId);
-		Response response = sendRequest(HttpMethodType.POST, url);
+		Response response = sendRequest(HttpMethodType.GET, url);
 		return handleResponse(response, Task.class);
 	}
 
@@ -218,7 +218,7 @@ public class TaskApi extends BaseApi {
 		String url = String.format("%s/%s", baseUrl, taskId);
 		String jsonPayload = GsonSingleton.getInstance().toJson(task);
 		RequestBody body = RequestBody.create(jsonPayload, MediaTypes.JSON);
-		Response response = sendRequest(HttpMethodType.POST, body, url);
+		Response response = sendRequest(HttpMethodType.PUT, body, url);
 		return handleResponse(response, Task.class);
 	}
 
