@@ -45,7 +45,7 @@ public class WorkerRouting {
 		return id;
 	}
 
-	public List<Long> getLocation() {
+	public List<Double> getLocation() {
 		return location;
 	}
 
@@ -74,7 +74,7 @@ public class WorkerRouting {
 		private Boolean createdByLocation;
 		private String googlePlaceId;
 		private String id;
-		private List<Long> location;
+		private List<Double> location;
 		private String notes;
 		private String organization;
 		private Long timeCreated;
@@ -101,7 +101,7 @@ public class WorkerRouting {
 			return this;
 		}
 
-		public Builder setLocation(List<Long> location) {
+		public Builder setLocation(List<Double> location) {
 			this.location = location;
 			return this;
 		}
