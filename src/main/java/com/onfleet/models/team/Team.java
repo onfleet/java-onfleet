@@ -1,5 +1,6 @@
 package com.onfleet.models.team;
 
+import com.onfleet.models.Metadata;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -9,6 +10,7 @@ public class Team {
 	private String name;
 	private List<String> workers;
 	private List<String> managers;
+	private List<Metadata> metadata;
 	@SerializedName("hub")
 	private String hubId;
 	private Boolean enableSelfAssignment;
@@ -50,5 +52,9 @@ public class Team {
 
 	public Long getTimeLastModified() {
 		return timeLastModified;
+	}
+
+	public List<Metadata> getMetadata() {
+		return metadata;
 	}
 }
