@@ -1,6 +1,4 @@
 package com.onfleet.models.task;
-
-
 import com.onfleet.models.destination.Destination;
 import com.onfleet.models.Metadata;
 import com.onfleet.models.recipient.Recipient;

@@ -4,6 +4,7 @@ import com.google.gson.reflect.TypeToken;
 import com.onfleet.exceptions.ApiException;
 import com.onfleet.models.VehicleType;
 import com.onfleet.models.team.*;
+import com.onfleet.models.Metadata;
 import com.onfleet.utils.GsonSingleton;
 import com.onfleet.utils.HttpMethodType;
 import com.onfleet.utils.MediaTypes;
@@ -144,6 +145,23 @@ public class TeamApi extends BaseApi {
 			urlBuilder.addQueryParameter("lastId", params.getLastId());
 		}
 		return handleResponse(sendRequest(HttpMethodType.GET, urlBuilder.build().toString()), TeamTasks.class);
+	}
+
+	/**
+	 * Query teams with associated metadata.
+	 * <a href="https://docs.onfleet.com/reference/metadata">Api Docs</a>
+	 *
+	 * @param metadata A list of Metadata objects containing personalized data to be used as query criteria.
+	 * @return A list of Task objects matching the specified metadata query criteria.
+	 * @throws ApiException If an error occurs during the API request or response handling.
+	 */
+	public List<Team> queryWithMetadata(List<Metadata> metadata) throws ApiException {
+		String url = String.format("%s/metadata", baseUrl);
+		String jsonPayload = GsonSingleton.getInstance().toJson(metadata);
+		RequestBody body = RequestBody.create(jsonPayload, MediaTypes.JSON);
+		Response response = sendRequest(HttpMethodType.POST, body, url);
+		return handleResponse(response, new TypeToken<List<Team>>() {
+		}.getType());
 	}
 
 }
